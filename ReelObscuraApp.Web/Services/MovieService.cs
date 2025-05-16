@@ -1,11 +1,10 @@
 ﻿using ReelObscuraApp.Web.Models;
 
-
 namespace ReelObscuraApp.Web.Services
-    {
+{
     public class MovieService
-        {
-        List<Movie> movies = new();
+    {
+        private List<Movie> movies = new();
 
         public void AddMovie(Movie movie)
         {
@@ -16,6 +15,5 @@ namespace ReelObscuraApp.Web.Services
         public Movie[] GetAllMovies() => [.. movies.OrderBy(m => m.Title)];
 
         public Movie GetMovieById(int id) => movies.Single(m => m.Id == id);
-
-        }
     }
+}
