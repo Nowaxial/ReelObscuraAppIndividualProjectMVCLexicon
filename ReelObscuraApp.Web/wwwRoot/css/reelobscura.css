@@ -1,0 +1,68 @@
+body {
+    /*background-color: #020213;
+                color: #D89F0F;*/
+    font-family: 'Inter', sans-serif;
+}
+
+h1, h2, h3 {
+    font-family: 'Cinzel', serif;
+    color: #3C2F2F;
+}
+
+.navbar {
+    /*background-color: #770404;*/
+    border-bottom: 2px solid #FFD500;
+}
+
+.nav-link {
+    color: #C90606;
+    font-family: 'Oswald', sans-serif;
+    padding: 0.5rem 1rem;
+}
+
+    .nav-link:hover {
+        border-bottom: 2px solid red;
+    }
+
+.navbar-toggler {
+    border-color: #3C2F2F;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2860, 47, 47, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+/* Centrera länkar i mobilvy */
+
+.navbar-nav {
+    margin-top: 10px;
+}
+
+
+
+.btn-primary {
+    background-color: #B22222;
+    border-color: #B22222;
+}
+
+    .btn-primary:hover {
+        background-color: #8B0000;
+    }
+
+.section-title{
+    font-family: 'Special Elite', cursive;
+    color: #6A5E55;
+}
+
+.card {
+    background-color: #FFFDF9;
+    border: 1px solid #D6D1C4;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.card-title {
+    color: #3C2F2F;
+}
+.form-label {
+    font-family: 'Special Elite', cursive;
+    color: #6A5E55;
+}
