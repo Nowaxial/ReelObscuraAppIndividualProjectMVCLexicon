@@ -1,4 +1,5 @@
-﻿namespace ReelObscuraApp.Web
+﻿using ReelObscuraApp.Web.Services;
+namespace ReelObscuraApp.Web
 {
     public static class Program
     {
@@ -6,7 +7,7 @@
         {
             var builder = WebApplication.CreateBuilder(args);
             builder.Services.AddControllersWithViews();
-            builder.Services.AddSingleton<ReelObscuraApp.Web.Services.MovieService>();
+            builder.Services.AddSingleton<MovieService>();
             var app = builder.Build();
             app.UseStaticFiles();
             app.MapControllers();

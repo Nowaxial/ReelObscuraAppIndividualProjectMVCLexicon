@@ -6,7 +6,7 @@ using System.Reflection;
 
 namespace ReelObscuraApp.Web.Controllers
 {
-    public class MovieController(MovieService service) : Controller
+    public class MoviesController(MovieService service) : Controller
     {
 
 
@@ -21,7 +21,7 @@ namespace ReelObscuraApp.Web.Controllers
                 {
                     Id = e.Id,
                     Title = e.Title,
-                    Description = e.Description,
+                    //Description = e.Description,
 
                 })
                 .ToArray()

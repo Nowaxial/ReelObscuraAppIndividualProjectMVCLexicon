@@ -13,9 +13,9 @@
         <div class="card mb-4">
             <div class="card-body">
                 <h5 class="card-title">@movie.Title</h5>
-                <p class="card-text">@movie.Description</p>
+                @*<p class="card-text">@movie.Description</p>*@
                 <a href="#" class="btn btn-primary mr-0">Show details</a>
-                <a href="#" asp-route-id="@movie.Id" class="btn btn-primary">Edit details</a>
+                <a asp-controller="Movies" asp-action="/details/{id}" asp-route-id="@movie.Id" class="btn btn-primary">Movie details</a>
             </div>
         </div>
     </div>

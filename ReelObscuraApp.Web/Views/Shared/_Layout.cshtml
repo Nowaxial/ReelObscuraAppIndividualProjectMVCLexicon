@@ -11,75 +11,53 @@
 <body>
     <header>
         <nav class="navbar navbar-expand-lg">
-            <div class="container-fluid justify-content-center">
-                <div class="d-flex align-items-center">
-                    <a href="/"> <img src="images/Reel_Obscura.png" alt="Logo" width="80" height="80" class="me-3"></a>
+            <div class="container-fluid">
+                <!-- Logo - vänsterjusterad på mobil, centrerad på desktop -->
+                <a class="navbar-brand d-lg-none" href="/">
+                    <img src="images/Reel_Obscura.png" alt="Logo" width="80" height="80">
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Hela nav-innehållet centrerat på desktop -->
+                <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                    <!-- Logo - centrerad endast på desktop -->
+                    <a class="navbar-brand d-none d-lg-block mx-lg-4" href="/">
+                        <img src="images/Reel_Obscura.png" alt="Logo" width="80" height="80">
+                    </a>
+
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link"
+                               asp-controller="Movies"
+                               asp-action="Details"
+                               asp-route-id="">My Collection</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/create">Add movie</a>
+                        </li>
+                    </ul>
                 </div>
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/details">My Collection</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/create">Add movie</a>
-                    </li>
-                </ul>
             </div>
         </nav>
     </header>
 
     <main>
         <div class="container py-5">
-            <h1 class="mb-4 text-center"><strong>Reel Obscura</strong> - Your personal movie collecton</h1>
+            <h1 class="mb-4 text-center"><strong>Reel Obscura</strong> - Your personal movie collection</h1>
             <p class="section-title text-center">Store, view, and organize your favorite movies in classic style</p>
-
             <div class="row mt-5 g-3">
                 @RenderBody()
-
             </div>
         </div>
     </main>
+
     @RenderSection("scripts", false)
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
-</head>
-<body>
-    <div>
-        @RenderBody()
-    </div>
 </body>
 </html>
