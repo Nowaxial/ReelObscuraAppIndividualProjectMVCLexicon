@@ -26,5 +26,9 @@ namespace ReelObscuraApp.Web.Controllers
 
         [HttpGet("/details/{id}")]
         public IActionResult Details(int id) => View(movieService.GetMovieById(id));
+
+        [HttpGet("/details")]
+
+        public IActionResult Details() => View();
     }
 }
