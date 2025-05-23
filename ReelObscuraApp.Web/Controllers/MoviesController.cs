@@ -16,15 +16,14 @@ namespace ReelObscuraApp.Web.Controllers
             var model = service.GetAllMovies();
             var viewModel = new IndexVM()
             {
-                MovieVMs = model
+                MovieVMs = [.. model
                 .Select(e => new IndexVM.MovieVM()
                 {
                     Id = e.Id,
                     Title = e.Title,
                     //Description = e.Description,
 
-                })
-                .ToArray()
+                })]
             };
             return View(viewModel);
         }
@@ -45,8 +44,28 @@ namespace ReelObscuraApp.Web.Controllers
         [HttpGet("/details/{id}")]
         public IActionResult Details(int id) => View(service.GetMovieById(id));
 
-        [HttpGet("/details")]
 
-        public IActionResult Details() => View();
+        [HttpGet("/collection")]
+        public IActionResult Collection()
+        {
+            var model = service.GetAllMovies();
+            var viewModel = new CollectionVM()
+            {
+                MovieCollectionVMs = [.. model
+                .Select(e => new CollectionVM.MovieCollectionVM()
+                {
+                    Id = e.Id,
+                    Title = e.Title,
+                    Description = e.Description,
+                    ReleaseYear = e.ReleaseYear,
+                    ImdbUrl = e.ImdbUrl,
+                    MoviePoster = e.MoviePoster,
+                    Actors = e.Actors,
+                    TrailerUrl = e.TrailerUrl
+                })]
+            };
+            return View(viewModel);
+
+        }
     }
 }
