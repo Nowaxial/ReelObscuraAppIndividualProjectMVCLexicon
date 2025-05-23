@@ -1,8 +1,7 @@
-﻿namespace ReelObscuraApp.Web.Views.Movie
+﻿namespace ReelObscuraApp.Web.Views.Movies
 {
     public class CollectionVM
     {
-
         public MovieCollectionVM[] MovieCollectionVMs { get; set; } = null!;
 
         public class MovieCollectionVM
@@ -14,8 +13,7 @@
             public required string ImdbUrl { get; set; } = null!;
             public required string MoviePoster { get; set; } = null!;
             public required string[] Actors { get; set; } = null!;
-            public string TrailerUrl { get; set; } = null!;
-
+            public required string TrailerUrl { get; set; } = null!;
         }
     }
 }

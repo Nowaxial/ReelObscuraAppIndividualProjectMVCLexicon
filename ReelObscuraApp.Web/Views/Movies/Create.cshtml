@@ -1,37 +1,60 @@
-﻿@model ReelObscuraApp.Web.Models.Movie[]
+﻿@model CreateVM.MovieCreateVM
 
 @{
     ViewBag.Title = "Reel Obscura - Create";
 }
 
-<form>
-    <div class="mb-3 col-6">
-        <label for="Title" class="form-label">Title</label>
-        <input type="text" class="form-control" id="Title">
-    </div>
-    <div class="mb-3 col-6">
-        <label for="Description" class="form-label">Description</label>
-        <input type="text" class="form-control" id="Description">
-    </div>
-    <div class="mb-3 col-6">
-        <label for="Release Year" class="form-label">Release Year</label>
-        <input type="text" class="form-control" id="Release Year">
+<form asp-controller="Movies" asp-action="Create" method="post">
+    @Html.AntiForgeryToken()
 
-    </div>
     <div class="mb-3 col-6">
-        <label for="Movie Poster" class="form-label">Movie Poster</label>
-        <input type="file" class="form-control" id="Movie Poster">
+        <label asp-for="Title" class="form-label"></label>
+        <input asp-for="Title" type="text" class="form-control">
+        <span asp-validation-for="Title" class="text-danger"></span>
     </div>
-    <div class="mb-3 col-6">
-        <label for="Imdb URL" class="form-label">Imdb URL</label>
-        <input type="text" class="form-control" id="Imdb URL">
 
+    <div class="mb-3 col-6">
+        <label asp-for="Description" class="form-label"></label>
+        <textarea asp-for="Description" class="form-control" rows="3"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3 col-6">
+        <label asp-for="ReleaseYear" class="form-label"></label>
+        <input asp-for="ReleaseYear" type="text" class="form-control">
+        <span asp-validation-for="ReleaseYear" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3 col-6">
+        <label asp-for="MoviePoster" class="form-label"></label>
+        <input asp-for="MoviePoster" type="url" class="form-control">
+        <span asp-validation-for="MoviePoster" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3 col-6">
+        <label asp-for="TrailerUrl" class="form-label"></label>
+        <input asp-for="TrailerUrl" type="url" class="form-control">
+        <span asp-validation-for="TrailerUrl" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3 col-6">
+        <label asp-for="Actors" class="form-label"></label>
+        <input asp-for="Actors" type="text" class="form-control" placeholder="Separera skådespelare med komma">
+        <span asp-validation-for="Actors" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3 col-6">
+        <label asp-for="ImdbUrl" class="form-label"></label>
+        <input asp-for="ImdbUrl" type="url" class="form-control">
+        <span asp-validation-for="ImdbUrl" class="text-danger"></span>
     </div>
 
     <button type="submit" class="btn btn-primary mb-3">Submit</button>
 </form>
 
-<a href="/" class="btn btn-primary ">Back to Index</a>
+<div asp-validation-summary="All" class="text-danger"></div>
+
+<a href="/" class="btn btn-secondary">Back to Index</a>
 
 @section scripts
 {
@@ -50,6 +73,3 @@
             asp-fallback-test="$.validator.unobtrusive">
     </script>
 }
-
-
-

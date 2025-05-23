@@ -1,21 +1,21 @@
-body {
-    /*background-color: #020213;
-                color: #D89F0F;*/
+﻿body {
+    background-color: #2A2A2A;
+    /*                color: #D89F0F;*/
     font-family: 'Inter', sans-serif;
 }
 
 h1, h2, h3 {
     font-family: 'Cinzel', serif;
-    color: #3C2F2F;
+    color: #da9100;
 }
 
 .navbar {
-    /*background-color: #770404;*/
-    border-bottom: 2px solid #FFD500;
+    background-color: #7c0a02;
+    border-bottom: 3px solid #FFD500;
 }
 
 .nav-link {
-    color: #C90606;
+    color: #da9100;
     font-family: 'Oswald', sans-serif;
     padding: 0.5rem 1rem;
 }
@@ -31,11 +31,11 @@ h1, h2, h3 {
 .navbar-toggler-icon {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2860, 47, 47, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
-/* Centrera l�nkar i mobilvy */
+/* Centrera länkar i mobilvy */
 
-.navbar-nav {
+/*.navbar-nav {
     margin-top: 10px;
-}
+}*/
 
 
 
@@ -48,9 +48,10 @@ h1, h2, h3 {
         background-color: #8B0000;
     }
 
-.section-title{
+.section-title {
     font-family: 'Special Elite', cursive;
-    color: #6A5E55;
+    /*    color: #6A5E55;*/
+    color: #b8860b
 }
 
 .card {
@@ -64,5 +65,5 @@ h1, h2, h3 {
 }
 .form-label {
     font-family: 'Special Elite', cursive;
-    color: #6A5E55;
+    color: #b8860b;
 }

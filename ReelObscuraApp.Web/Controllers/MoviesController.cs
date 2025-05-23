@@ -1,15 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ReelObscuraApp.Web.Models;
 using ReelObscuraApp.Web.Services;
-using ReelObscuraApp.Web.Views.Movie;
+using ReelObscuraApp.Web.Views.Movies;
 using System.Reflection;
 
 namespace ReelObscuraApp.Web.Controllers
 {
     public class MoviesController(MovieService service) : Controller
     {
-
-
         [HttpGet("/")]
         public IActionResult Index()
         {
@@ -21,8 +19,7 @@ namespace ReelObscuraApp.Web.Controllers
                 {
                     Id = e.Id,
                     Title = e.Title,
-                    //Description = e.Description,
-
+                    Description = e.Description
                 })]
             };
             return View(viewModel);
@@ -31,11 +28,25 @@ namespace ReelObscuraApp.Web.Controllers
         [HttpGet("/create")]
         public IActionResult Create() => View();
 
-        [HttpPost("create")]
-        public IActionResult Add(Movie movie)
+        [HttpPost("/create")]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(CreateVM.MovieCreateVM viewModel)
         {
             if (!ModelState.IsValid)
-                return View();
+            {
+                return View(viewModel);
+            }
+
+            Movie movie = new()
+            {
+                Title = viewModel.Title,
+                Description = viewModel.Description,
+                ReleaseYear = viewModel.ReleaseYear,
+                ImdbUrl = viewModel.ImdbUrl,
+                MoviePoster = viewModel.MoviePoster,
+                Actors = viewModel.Actors.Split(',').Select(a => a.Trim()).ToArray(),
+                TrailerUrl = viewModel.TrailerUrl
+            };
 
             service.AddMovie(movie);
             return RedirectToAction(nameof(Index));
@@ -43,7 +54,6 @@ namespace ReelObscuraApp.Web.Controllers
 
         [HttpGet("/details/{id}")]
         public IActionResult Details(int id) => View(service.GetMovieById(id));
-
 
         [HttpGet("/collection")]
         public IActionResult Collection()
@@ -65,7 +75,6 @@ namespace ReelObscuraApp.Web.Controllers
                 })]
             };
             return View(viewModel);
-
         }
     }
 }

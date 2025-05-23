@@ -1,4 +1,4 @@
-﻿@model ReelObscuraApp.Web.Views.Movie.IndexVM
+﻿@model IndexVM
 
 @{ 
     ViewBag.Title = "Reel Obscura";
@@ -10,13 +10,17 @@
 {
 
     <div class="col-md-4">
-        <div class="card mb-4">
-            <div class="card-body">
-                <h5 class="card-title">@movie.Title</h5>
-                @*<p class="card-text">@movie.Description</p>*@
-                <a href="#" class="btn btn-primary mr-0">Show details</a>
-                <a asp-controller="Movies" asp-action="/details/{id}" asp-route-id="@movie.Id" class="btn btn-primary">Movie details</a>
+        <a asp-controller="Movies" asp-action="Details" asp-route-id="@movie.Id"
+           class="text-decoration-none text-dark">
+            <!-- Tar bort understruken text och behåller färg -->
+            <div class="card mb-4 hover-shadow">
+                <!-- hover-shadow ger en hover-effekt -->
+                <div class="card-body">
+                    <h5 class="card-title">@movie.Title</h5>
+                    <p class="card-text">@movie.Description</p>
+                </div>
             </div>
-        </div>
+        </a>
     </div>
+
 }
