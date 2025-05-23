@@ -1,23 +1,68 @@
-﻿@{
-    ViewBag.Title = "Reel Obscura - Details";
+﻿@model ReelObscuraApp.Web.Views.Movies.DetailsVM
+@{
+    ViewBag.Title = $"{Model.Title} - Details";
 }
 
-<section>
-    <h2>Section Title</h2>
-    <p>This is a paragraph of text in the section.</p>
-</section>
+<div class="container mt-4">
+    <div class="row mb-4">
+        <div class="col-12">
+            <h1 class="display-4 text-center">
+                @Model.Title
+                <small >(@Model.ReleaseYear)</small>
+            </h1>
+        </div>
+    </div>
 
-<article>
-    <h2>Article Title</h2>
-    <p>This is an article.</p>
-</article>
-    
+    <div class="row">
+        <!-- Movie Poster Column -->
+        <div class="col-4">
+            <div class="card h-100">
+                <img src="@Model.MoviePoster" class="card-img h-100 w-100" alt="@Model.Title movie poster" style="object-fit: cover;">
+            </div>
+            <div class="card-footer">
+                <small class="text-body-secondary">Last updated 3 mins ago</small>
+            </div>
+        </div>
 
-<aside>
-    <h2>Sidebar Title</h2>
-    <p>This is a sidebar.</p>
-</aside>
+        <!-- Movie Info and Trailer Column -->
+        <div class="col-8">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Description</h3>
+                    <p class="card-text">@Model.Description</p>
 
-<footer>
-    <p>&copy; 2025 Company Name</p>
-</footer>
+                    <h3 class="mt-4">Cast</h3>
+                    <div class="row">
+                        @foreach (var actor in Model.Actors)
+                        {
+                            <div class="col-sm-6 col-md-4">
+                                <div class="d-flex align-items-center mb-2">
+                                    <span class="badge bg-secondary me-2">
+                                        <i class="bi bi-person"></i>
+                                    </span>
+                                    <span>@actor</span>
+                                </div>
+                            </div>
+                        }
+                    </div>
+
+                    <!-- Embedded Trailer Section -->
+                    @if (!string.IsNullOrEmpty(Model.TrailerUrl))
+                    {
+                        <div class="mt-4">
+                            <h3 class="card-title">Trailer</h3>
+                            <div class="ratio ratio-16x9 border border-secondary p-2">
+                                @{
+                                    var embedUrl = Model.TrailerUrl
+                                        .Replace("youtu.be/", "youtube.com/embed/")
+                                        .Replace("watch?v=", "embed/");
+                                }
+                                <iframe src="@embedUrl" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

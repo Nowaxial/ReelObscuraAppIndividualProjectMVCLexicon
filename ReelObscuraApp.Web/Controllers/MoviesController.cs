@@ -53,7 +53,22 @@ namespace ReelObscuraApp.Web.Controllers
         }
 
         [HttpGet("/details/{id}")]
-        public IActionResult Details(int id) => View(service.GetMovieById(id));
+        public IActionResult Details(int id)
+        {
+            var movie = service.GetMovieById(id);
+            var viewModel = new DetailsVM()
+            {
+                Id = movie.Id,
+                Title = movie.Title,
+                Description = movie.Description,
+                ReleaseYear = movie.ReleaseYear,
+                ImdbUrl = movie.ImdbUrl,
+                MoviePoster = movie.MoviePoster,
+                Actors = movie.Actors,
+                TrailerUrl = movie.TrailerUrl
+            };
+            return View(viewModel);
+        }
 
         [HttpGet("/collection")]
         public IActionResult Collection()
