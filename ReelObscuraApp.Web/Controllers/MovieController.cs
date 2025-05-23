@@ -1,15 +1,33 @@
-﻿using ReelObscuraApp.Web.Models;
+﻿using Microsoft.AspNetCore.Mvc;
+using ReelObscuraApp.Web.Models;
 using ReelObscuraApp.Web.Services;
-using Microsoft.AspNetCore.Mvc;
+using ReelObscuraApp.Web.Views.Movie;
+using System.Reflection;
 
 namespace ReelObscuraApp.Web.Controllers
 {
-    public class MovieController : Controller
+    public class MovieController(MovieService service) : Controller
     {
-        private static MovieService movieService = new MovieService();
+
 
         [HttpGet("/")]
-        public IActionResult Index() => View(movieService.GetAllMovies());
+        public IActionResult Index()
+        {
+            var model = service.GetAllMovies();
+            var viewModel = new IndexVM()
+            {
+                MovieVMs = model
+                .Select(e => new IndexVM.MovieVM()
+                {
+                    Id = e.Id,
+                    Title = e.Title,
+                    Description = e.Description,
+
+                })
+                .ToArray()
+            };
+            return View(viewModel);
+        }
 
         [HttpGet("/create")]
         public IActionResult Create() => View();
@@ -20,12 +38,12 @@ namespace ReelObscuraApp.Web.Controllers
             if (!ModelState.IsValid)
                 return View();
 
-            movieService.AddMovie(movie);
+            service.AddMovie(movie);
             return RedirectToAction(nameof(Index));
         }
 
         [HttpGet("/details/{id}")]
-        public IActionResult Details(int id) => View(movieService.GetMovieById(id));
+        public IActionResult Details(int id) => View(service.GetMovieById(id));
 
         [HttpGet("/details")]
 

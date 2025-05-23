@@ -6,6 +6,7 @@
         {
             var builder = WebApplication.CreateBuilder(args);
             builder.Services.AddControllersWithViews();
+            builder.Services.AddSingleton<ReelObscuraApp.Web.Services.MovieService>();
             var app = builder.Build();
             app.UseStaticFiles();
             app.MapControllers();

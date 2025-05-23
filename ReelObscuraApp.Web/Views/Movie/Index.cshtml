@@ -1,4 +1,4 @@
-﻿@model ReelObscuraApp.Web.Models.Movie[]
+﻿@model ReelObscuraApp.Web.Views.Movie.IndexVM
 
 @{ 
     ViewBag.Title = "Reel Obscura";
@@ -6,7 +6,7 @@
 
 
 
-@foreach (var movie in Model)
+@foreach (var movie in Model.MovieVMs)
 {
 
     <div class="col-md-4">
