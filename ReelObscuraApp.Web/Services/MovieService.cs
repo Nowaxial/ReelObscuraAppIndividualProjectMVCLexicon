@@ -2,7 +2,7 @@
 
 namespace ReelObscuraApp.Web.Services
 {
-    public class MovieService
+    public class MovieService : IMovieService
     {
         private List<Movie> movies = [
             new Movie
