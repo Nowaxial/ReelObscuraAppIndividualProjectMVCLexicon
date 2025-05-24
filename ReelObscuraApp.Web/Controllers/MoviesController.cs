@@ -2,12 +2,18 @@
 using ReelObscuraApp.Web.Models;
 using ReelObscuraApp.Web.Services;
 using ReelObscuraApp.Web.Views.Movies;
-using System.Reflection;
 
 namespace ReelObscuraApp.Web.Controllers
 {
-    public class MoviesController(MovieService service) : Controller
+    public class MoviesController(IMovieService service) : Controller
     {
+        [Route("NotFound/{statusCode}")]
+        public IActionResult NotFound(int statusCode)
+        {
+            return View(); 
+        }
+
+
         [HttpGet("/")]
         public IActionResult Index()
         {
@@ -91,6 +97,12 @@ namespace ReelObscuraApp.Web.Controllers
                 })]
             };
             return View(viewModel);
+        }
+
+        [HttpGet("/trigger-error")]
+        public IActionResult TriggerError()
+        {
+            throw new Exception("Test exception for error page");
         }
     }
 }

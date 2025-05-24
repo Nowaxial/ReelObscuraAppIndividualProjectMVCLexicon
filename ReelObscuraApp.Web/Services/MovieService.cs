@@ -73,6 +73,7 @@ namespace ReelObscuraApp.Web.Services
             }
         ];
 
+
         public void AddMovie(Movie movie)
         {
             if (movies.Any(m => m.Title == movie.Title))

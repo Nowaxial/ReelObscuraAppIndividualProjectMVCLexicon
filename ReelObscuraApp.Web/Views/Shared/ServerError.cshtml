@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "Server Error - Reel Obscura";
+    Layout = "_Layout";
+}
+
+<div class="container text-center my-5 py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card border-gold bg-soft-dark">
+                <div class="card-header bg-dark-gold">
+                    <h1 class="gold-title mb-0"><i class="bi bi-film-slash"></i> 500 - Server Error</h1>
+                </div>
+                <div class="card-body">
+                    <div class="display-1 text-gold mb-4">
+                        <i class="bi bi-exclamation-octagon-fill"></i>
+                    </div>
+                    <h3 class="text-light">The projector malfunctioned...</h3>
+                    <p class="section-title mt-3">Something went wrong on our end while processing your request.</p>
+
+                    @if (ViewBag.ErrorId != null)
+                    {
+                        <div class="alert alert-gold mt-4">
+                            <p class="small mb-0">Error ID: <code>@ViewBag.ErrorId</code></p>
+                        </div>
+                    }
+
+                    <div class="mt-5">
+                        <a href="/" class="btn btn-gold me-3">
+                            <i class="bi bi-house-door"></i> Return Home
+                        </a>
+                        <a href="mailto:support@reelobscura.com" class="btn btn-outline-gold">
+                            <i class="bi bi-envelope"></i> Contact Support
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
