@@ -3,18 +3,24 @@
 @{
     ViewBag.Title = "Reel Obscura";
 }
-<h1 class="mb-4 text-center"><strong>Reel Obscura</strong> - Your personal movie collection</h1>
-<p class="section-title text-center">Store, view, and organize your favorite movies in classic style</p>
-@foreach (var movie in Model.MovieVMs)
-{
-    <div class="col-12 col-md-2 mb-md-0">
-        <a asp-controller="Movies" asp-action="Details" asp-route-id="@movie.Id"
-           class="text-decoration-none text-dark">
-            <!-- Tar bort understruken text och behåller färg -->
-            <div class="card mb-4 hover-shadow w-100">
-                <!-- hover-shadow ger en hover-effekt -->
-                <img src="@movie.MoviePoster" class="card-img" alt="@movie.Title movie poster">
-            </div>
-        </a>
+
+<div class="container">
+    <div class="text-center mb-5">
+        <h1 class="display-4 mb-3"><strong>Reel Obscura</strong></h1>
+        <p class="section-title">Your personal movie collection in classic style</p>
     </div>
-}
+
+    <div class="row g-4">
+        @foreach (var movie in Model.MovieVMs)
+        {
+            <div class="col-12 col-md-4 col-lg-3">
+                <div class="card h-100 hover-shadow">
+                    <a asp-controller="Movies" asp-action="Details" asp-route-id="@movie.Id">
+                        <img src="@movie.MoviePoster" class="card-img-top" alt="@movie.Title movie poster">
+                        
+                    </a>
+                </div>
+            </div>
+        }
+    </div>
+</div>

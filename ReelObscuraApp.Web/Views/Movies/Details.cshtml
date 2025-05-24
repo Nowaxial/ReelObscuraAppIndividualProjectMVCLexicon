@@ -3,45 +3,52 @@
     ViewBag.Title = $"{Model.Title} - Details";
 }
 
-<div class="container mt-3">
-    <div class="row mb-3">
-        <div class="col-12">
-            <h1 class="display-4 text-center">
+<div class="container mt-4">
+    <div class="row mb-4">
+        <div class="col-12 text-center">
+            <h1 class="gold-title">
                 @Model.Title
-                <small>(@Model.ReleaseYear)</small>
+                <small class="text-muted">(@Model.ReleaseYear)</small>
             </h1>
         </div>
     </div>
-    <div class="row">
-        <div class="col-12 col-md-5 mb-3 mb-md-0">
-            <div class="card h-100">
-                <img src="@Model.MoviePoster" class="card-img h-100 w-100 img-fluid" alt="@Model.Title movie poster">
+
+    <div class="row g-4">
+        <div class="col-lg-5">
+            <div class="card h-100 border-gold">
+                <img src="@Model.MoviePoster" class="card-img h-100" alt="@Model.Title movie poster" style="object-fit: contain;">
             </div>
         </div>
-        <div class="col-12 col-md-7">
-            <div class="card h-100 w-100">
+
+        <div class="col-lg-7">
+            <div class="card h-100 border-gold">
+                <div class="card-header bg-dark-gold">
+                    <h3 class="mb-0">Movie Details</h3>
+                </div>
                 <div class="card-body">
-                    <h3>Description</h3>
-                    <p class="card-text">@Model.Description</p>
-                    <h3 class="mt-4">Cast</h3>
-                    <div class="row">
+                    <h4 class="text-gold">Description</h4>
+                    <p class="card-text mb-4">@Model.Description</p>
+
+                    <h4 class="text-gold mt-4">Cast</h4>
+                    <div class="row g-2">
                         @foreach (var actor in Model.Actors)
                         {
-                            <div class="col-sm-6 col-md-4">
-                                <div class="d-flex align-items-center mb-2">
+                            <div class="col-sm-6">
+                                <div class="d-flex align-items-center">
                                     <span class="badge bg-secondary me-2">
-                                        <i class="bi bi-person"></i>
+                                        <i class="bi bi-person-fill"></i>
                                     </span>
                                     <span>@actor</span>
                                 </div>
                             </div>
                         }
                     </div>
+
                     @if (!string.IsNullOrEmpty(Model.TrailerUrl))
                     {
                         <div class="mt-4">
-                            <h3>Trailer</h3>
-                            <div class="ratio ratio-16x9 border border-secondary p-2">
+                            <h4 class="text-gold">Trailer</h4>
+                            <div class="ratio ratio-16x9 mt-2">
                                 @{
                                     var embedUrl = Model.TrailerUrl
                                         .Replace("youtu.be/", "youtube.com/embed/")
@@ -51,6 +58,18 @@
                             </div>
                         </div>
                     }
+                <div class="d-flex justify-content-between mt-4">
+                    <a asp-controller="Movie" asp-action="Index" class="btn btn-outline-gold">
+                        <i class="bi bi-arrow-left"></i> Back to Index
+                    </a>
+
+                    <a href="@Model.ImdbUrl" class="btn btn-gold">
+                        <i class="bi bi-film"></i> IMDB
+                    </a>
+                    @*<button type="submit" class="btn btn-gold">
+                        <i class="bi bi-save"></i> IMDB
+                    </button>*@
+                </div>
                 </div>
             </div>
         </div>
