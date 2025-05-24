@@ -19,7 +19,8 @@ namespace ReelObscuraApp.Web.Controllers
                 {
                     Id = e.Id,
                     Title = e.Title,
-                    Description = e.Description
+                    Description = e.Description,
+                    MoviePoster = e.MoviePoster
                 })]
             };
             return View(viewModel);

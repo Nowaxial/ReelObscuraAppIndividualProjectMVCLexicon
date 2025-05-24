@@ -3,34 +3,26 @@
     ViewBag.Title = $"{Model.Title} - Details";
 }
 
-<div class="container mt-4">
-    <div class="row mb-4">
+<div class="container mt-3">
+    <div class="row mb-3">
         <div class="col-12">
             <h1 class="display-4 text-center">
                 @Model.Title
-                <small >(@Model.ReleaseYear)</small>
+                <small>(@Model.ReleaseYear)</small>
             </h1>
         </div>
     </div>
-
     <div class="row">
-        <!-- Movie Poster Column -->
-        <div class="col-4">
+        <div class="col-12 col-md-5 mb-3 mb-md-0">
             <div class="card h-100">
-                <img src="@Model.MoviePoster" class="card-img h-100 w-100" alt="@Model.Title movie poster" style="object-fit: cover;">
-            </div>
-            <div class="card-footer">
-                <small class="text-body-secondary">Last updated 3 mins ago</small>
+                <img src="@Model.MoviePoster" class="card-img h-100 w-100 img-fluid" alt="@Model.Title movie poster">
             </div>
         </div>
-
-        <!-- Movie Info and Trailer Column -->
-        <div class="col-8">
-            <div class="card">
+        <div class="col-12 col-md-7">
+            <div class="card h-100 w-100">
                 <div class="card-body">
-                    <h3 class="card-title">Description</h3>
+                    <h3>Description</h3>
                     <p class="card-text">@Model.Description</p>
-
                     <h3 class="mt-4">Cast</h3>
                     <div class="row">
                         @foreach (var actor in Model.Actors)
@@ -45,12 +37,10 @@
                             </div>
                         }
                     </div>
-
-                    <!-- Embedded Trailer Section -->
                     @if (!string.IsNullOrEmpty(Model.TrailerUrl))
                     {
                         <div class="mt-4">
-                            <h3 class="card-title">Trailer</h3>
+                            <h3>Trailer</h3>
                             <div class="ratio ratio-16x9 border border-secondary p-2">
                                 @{
                                     var embedUrl = Model.TrailerUrl
