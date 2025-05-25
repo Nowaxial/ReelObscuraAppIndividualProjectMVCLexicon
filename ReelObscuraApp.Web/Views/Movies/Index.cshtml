@@ -13,10 +13,10 @@
     <div class="row g-4">
         @foreach (var movie in Model.MovieVMs)
         {
-            <div class="col-12 col-md-4 col-lg-3">
+            <div class="col-6 col-md-4 col-lg-3">
                 <div class="card h-100 hover-shadow">
                     <a asp-controller="Movies" asp-action="Details" asp-route-id="@movie.Id">
-                        <img src="@movie.MoviePoster" class="card-img-top" alt="@movie.Title movie poster">
+                        <img src="@movie.MoviePoster" class="card-img object-fit-cover h-100 w-100" alt="@movie.Title movie poster" >
 
                     </a>
                 </div>

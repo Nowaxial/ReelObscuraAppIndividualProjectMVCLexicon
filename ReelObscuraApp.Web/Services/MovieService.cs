@@ -36,7 +36,7 @@ namespace ReelObscuraApp.Web.Services
                 ImdbUrl = "https://www.imdb.com/title/tt1856101/",
                 MoviePoster = "https://m.media-amazon.com/images/M/MV5BNzA1Njg4NzYxOV5BMl5BanBnXkFtZTgwODk5NjU3MzI@._V1_.jpg",
                 Actors = new[] { "Ryan Gosling", "Harrison Ford", "Ana de Armas" },
-                TrailerUrl = "https://www.youtube.com/watch?v=gCcbXkoyzoU"
+                TrailerUrl = "https://www.youtube.com/watch?v=gCcx85zbxz4"
             },
             new Movie
             {
@@ -56,7 +56,7 @@ namespace ReelObscuraApp.Web.Services
                 Description = "In a post-apocalyptic wasteland, a woman rebels against a tyrannical ruler in search for her homeland with the help of a drifter.",
                 ReleaseYear = "2015",
                 ImdbUrl = "https://www.imdb.com/title/tt1392190/",
-                MoviePoster = "https://m.media-amazon.com/images/M/MV5BZDRkODJhOTgtOTc1OC00NTgzLTk4NjItNDgxZDY4YjlmNDY2XkEyXkFqcGc@._V1_.jpg",
+                MoviePoster = "https://m.media-amazon.com/images/M/MV5BNzQ2NGQzYTQtYmMwMy00YTVkLTgwOGQtMzA5OGM4ZDJjYmE5XkEyXkFqcGc@._V1_FMjpg_UY1080_.jpg",
                 Actors = new[] { "Tom Hardy", "Charlize Theron", "Nicholas Hoult" },
                 TrailerUrl = "https://www.youtube.com/watch?v=hEJnMQG9ev8"
             },
@@ -69,7 +69,29 @@ namespace ReelObscuraApp.Web.Services
                 ImdbUrl = "https://www.imdb.com/title/tt5052448/",
                 MoviePoster = "https://m.media-amazon.com/images/M/MV5BMjUxMDQwNjcyNl5BMl5BanBnXkFtZTgwNzcwMzc0MTI@._V1_.jpg",
                 Actors = new[] { "Daniel Kaluuya", "Allison Williams", "Bradley Whitford" },
-                TrailerUrl = "https://www.youtube.com/watch?v=sRfnevzMx8E"
+                TrailerUrl = "https://www.youtube.com/watch?v=DzfpyUB60YY"
+            },
+            new Movie
+            {
+                Id = 17,
+                Title = "Parasite",
+                Description = "Greed and class discrimination threaten the newly formed symbiotic relationship between the wealthy Park family and the destitute Kim clan.",
+                ReleaseYear = "2019",
+                ImdbUrl = "https://www.imdb.com/title/tt6751668/",
+                MoviePoster = "https://image.tmdb.org/t/p/original/uJZTGqNwkD5EoQje5umXIvPcZ97.jpg",
+                Actors = new[] { "Song Kang-ho", "Lee Sun-kyun", "Cho Yeo-jeong" },
+                TrailerUrl = "https://www.youtube.com/watch?v=5xH0HfJHsaY"
+            },
+            new Movie
+            {
+                Id = 18,
+                Title = "The Dark Knight",
+                Description = "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
+                ReleaseYear = "2008",
+                ImdbUrl = "https://www.imdb.com/title/tt0468569/",
+                MoviePoster = "https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_QL75_UX135_CR0",
+                Actors = new[] { "Christian Bale", "Heath Ledger", "Aaron Eckhart" },
+                TrailerUrl = "https://www.youtube.com/watch?v=EXeTwQWrcwY"
             }
         ];
 
