@@ -8,7 +8,7 @@ namespace ReelObscuraApp.Web
         {
             var builder = WebApplication.CreateBuilder(args);
             builder.Services.AddControllersWithViews();
-            builder.Services.AddScoped<IMovieService, MovieService>();
+            builder.Services.AddSingleton<IMovieService, MovieService>();
             var app = builder.Build();
 
             if (!app.Environment.IsDevelopment())

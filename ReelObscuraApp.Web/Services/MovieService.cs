@@ -108,5 +108,25 @@ namespace ReelObscuraApp.Web.Services
         public Movie[] GetAllMovies() => [.. movies.OrderBy(m => m.Title)];
 
         public Movie GetMovieById(int id) => movies.Single(m => m.Id == id);
+
+        public void UpdateMovie(Movie movie)
+        {
+            var existingMovie = movies.FirstOrDefault(m => m.Id == movie.Id);
+            if (existingMovie != null)
+            {
+                // Uppdatera alla fält
+                existingMovie.Title = movie.Title;
+                existingMovie.Description = movie.Description;
+                existingMovie.ReleaseYear = movie.ReleaseYear;
+                existingMovie.ImdbUrl = movie.ImdbUrl;
+                existingMovie.MoviePoster = movie.MoviePoster;
+                existingMovie.Actors = movie.Actors;
+                existingMovie.TrailerUrl = movie.TrailerUrl;
+
+                // Om du använder databas:
+                // _context.Update(movie);
+                // _context.SaveChanges();
+            }
+        }
     }
 }

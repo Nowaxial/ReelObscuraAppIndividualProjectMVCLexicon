@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Components.Forms;
+using Microsoft.AspNetCore.Mvc;
 using ReelObscuraApp.Web.Models;
 using ReelObscuraApp.Web.Services;
 using ReelObscuraApp.Web.Views.Movies;
@@ -104,6 +105,58 @@ namespace ReelObscuraApp.Web.Controllers
         public IActionResult TriggerError()
         {
             throw new Exception("Test exception for error page");
+        }
+
+        [HttpGet("/edit/{id}")]
+        public IActionResult Edit(int id)
+        {
+            var movie = service.GetMovieById(id);
+            if (movie == null)
+            {
+                return NotFound();
+            }
+
+            var viewModel = new EditVM.MovieEditVM
+            {
+                Id = movie.Id,
+                Title = movie.Title,
+                Description = movie.Description,
+                ReleaseYear = movie.ReleaseYear,
+                ImdbUrl = movie.ImdbUrl,
+                MoviePoster = movie.MoviePoster,
+                Actors = string.Join(", ", movie.Actors),
+                TrailerUrl = movie.TrailerUrl
+            };
+
+            return View(viewModel);
+        }
+
+        [HttpPost("/edit/{id}")]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(int id, EditVM.MovieEditVM viewModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(viewModel);
+            }
+
+            var existingMovie = service.GetMovieById(id);
+            if (existingMovie == null)
+            {
+                return NotFound();
+            }
+
+            // Uppdatera befintlig film
+            existingMovie.Title = viewModel.Title;
+            existingMovie.Description = viewModel.Description;
+            existingMovie.ReleaseYear = viewModel.ReleaseYear;
+            existingMovie.ImdbUrl = viewModel.ImdbUrl;
+            existingMovie.MoviePoster = viewModel.MoviePoster;
+            existingMovie.Actors = viewModel.Actors.Split(',').Select(a => a.Trim()).ToArray();
+            existingMovie.TrailerUrl = viewModel.TrailerUrl;
+
+            service.UpdateMovie(existingMovie);
+            return RedirectToAction(nameof(Details), new { id = existingMovie.Id });
         }
     }
 }
