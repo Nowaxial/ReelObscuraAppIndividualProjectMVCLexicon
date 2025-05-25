@@ -35,7 +35,7 @@ Reel Obscura är en intuitiv webbapplikation som låter dig organisera och hante
 
 1. **Klona projektet**
    ```bash
-   git clone [https://github.com/Nowaxial/ReelObscuraAppIndividualProjectMVCLexicon.git]
+   git clone https://github.com/Nowaxial/ReelObscuraAppIndividualProjectMVCLexicon.git
    cd ReelObscuraAppIndividualProjectMVCLexicon
    ```
 
@@ -68,7 +68,7 @@ Reel Obscura är en intuitiv webbapplikation som låter dig organisera och hante
 
 1. **Klona projektet**
    ```bash
-   git clone [https://github.com/Nowaxial/ReelObscuraAppIndividualProjectMVCLexicon.git]
+   git clone https://github.com/Nowaxial/ReelObscuraAppIndividualProjectMVCLexicon.git
    cd ReelObscuraAppIndividualProjectMVCLexicon
    ```
 
