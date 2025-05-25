@@ -46,14 +46,14 @@ Reel Obscura är en intuitiv webbapplikation som låter dig organisera och hante
 
 3. **Starta applikationen**
    - Tryck `F5` eller klicka på Start-knappen (grön pil)
-   - Applikationen öppnas automatiskt i webbläsaren på `http://localhost:5000`
+   - Applikationen öppnas automatiskt i webbläsaren på `https://localhost:7192` eller `http://localhost:5104`
 
 #### Alternativ 2: Klona direkt i Visual Studio 2022
 
 1. **Klona via Visual Studio**
    - Starta Visual Studio 2022
    - Välj `Clone a repository` på startskärmen
-   - Klistra in repository-URL:en
+   - Klistra in repository-URL:en: `https://github.com/Nowaxial/ReelObscuraAppIndividualProjectMVCLexicon.git`: `https://github.com/Nowaxial/ReelObscuraAppIndividualProjectMVCLexicon.git`
    - Välj lokal mapp och klicka `Clone`
 
 2. **Öppna projektet**
@@ -62,7 +62,7 @@ Reel Obscura är en intuitiv webbapplikation som låter dig organisera och hante
 
 3. **Starta applikationen**
    - Tryck `F5` eller klicka på Start-knappen
-   - Applikationen startar i din standardwebbläsare
+   - Applikationen startar i din standardwebbläsare på `https://localhost:7192` eller `http://localhost:5104`
 
 #### Alternativ 3: Visual Studio Code
 
@@ -88,7 +88,7 @@ Reel Obscura är en intuitiv webbapplikation som låter dig organisera och hante
    ```bash
    dotnet run
    ```
-   - Öppna webbläsaren och gå till `http://localhost:5000`
+   - Öppna webbläsaren och gå till `https://localhost:7192` eller `http://localhost:5104`
 
 #### Alternativ 4: Klona direkt i VS Code
 
@@ -105,7 +105,7 @@ Reel Obscura är en intuitiv webbapplikation som låter dig organisera och hante
 3. **Starta applikationen**
    - Öppna terminalen (`Ctrl+` `)
    - Kör: `dotnet run`
-   - Besök `http://localhost:5000` i webbläsaren
+   - Besök `https://localhost:7192` eller `http://localhost:5104` i webbläsaren
 
 > 💡 **Tips:** 
 > - **Visual Studio 2022:** Bäst för fullständig .NET-utveckling med IntelliSense och debugging
@@ -205,15 +205,15 @@ Alla formulär inkluderar omfattande validering:
 
 ```
 ReelObscuraApp.Web/
-├── Controllers/       # MVC Controllers
-├── Models/            # Datamodeller
-├── Services/          # Business logic och datahantering
-├── Views/             # Razor Views
-├── wwwroot/           # Statiska filer
-│   ├── css/           # Custom styling
-│   ├── lib/           # JavaScript bibliotek
-│   └── images/        # Bilder och ikoner
-└── Program.cs         # Applikationsstartpunkt
+├── Controllers/        # MVC Controllers
+├── Models/             # Datamodeller
+├── Services/           # Business logic och datahantering
+├── Views/              # Razor Views
+├── wwwroot/            # Statiska filer
+│   ├── css/            # Custom styling
+│   ├── lib/            # JavaScript bibliotek
+│   └── images/         # Bilder
+└── Program.cs          # Applikationsstartpunkt
 ```
 
 ## 📈 Framtida förbättringar
