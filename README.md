@@ -2,8 +2,7 @@
 
 > En modern webbapplikation för att hantera din personliga filmsamling
 
-![Reel Obscura Logo](![Reel Obscura Logo](https://github.com/Nowaxial/ReelObscuraAppIndividualProjectMVCLexicon/blob/main/ReelObscuraApp.Web/wwwRoot/images/Reel_Obscura.png)
-)
+![Reel Obscura Logo](https://github.com/Nowaxial/ReelObscuraAppIndividualProjectMVCLexicon/blob/main/ReelObscuraApp.Web/wwwRoot/images/Reel_Obscura.png)
 
 ## Översikt
 
