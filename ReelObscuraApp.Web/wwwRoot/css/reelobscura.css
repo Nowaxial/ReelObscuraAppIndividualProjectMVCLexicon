@@ -91,6 +91,7 @@ a {
     border-radius: 0.5rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     overflow: hidden;
+    min-height: unset; /* Återställ om någon CSS sätter detta */
 }
 
     .card.border-gold {
@@ -123,8 +124,8 @@ a {
     }
 
 .card-img {
-    object-fit: cover;
     transition: opacity 0.3s ease;
+    aspect-ratio: 2/3;
 }
 
 .card:hover .card-img {
@@ -316,7 +317,7 @@ footer {
 }
 
 /* Ikonstilar */
-.card-body .display-1 .bi-exclamation-octagon-fill {
+.card-body .display-1 .bi-exclamation-octagon-fill .bi-exclamation-triangle-fill {
     display: inline-block; /* Viktigt för transform */
     color: var(--gold-primary);
     -webkit-animation: pulse 2s infinite ease-in-out;
@@ -329,3 +330,24 @@ code {
     padding: 0.2rem 0.4rem;
     border-radius: 0.25rem;
 }
+
+/* Delete-specifika stilar */
+.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+    .btn-danger:hover {
+        background-color: #bb2d3b;
+        border-color: #bb2d3b;
+    }
+
+.btn-outline-danger {
+    color: #dc3545;
+    border-color: #dc3545;
+}
+
+    .btn-outline-danger:hover {
+        background-color: rgba(220, 53, 69, 0.1);
+        color: #dc3545;
+    }

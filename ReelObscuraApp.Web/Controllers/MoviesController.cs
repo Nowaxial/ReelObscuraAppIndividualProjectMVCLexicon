@@ -158,5 +158,31 @@ namespace ReelObscuraApp.Web.Controllers
             service.UpdateMovie(existingMovie);
             return RedirectToAction(nameof(Details), new { id = existingMovie.Id });
         }
+
+        [HttpGet("/delete/{id}")]
+        public IActionResult DeleteConfirmation(int id)
+        {
+            var movie = service.GetMovieById(id);
+            if (movie == null)
+            {
+                return NotFound();
+            }
+
+            return View("DeleteConfirmation", movie);
+        }
+
+        [HttpPost("/delete/{id}")]
+        [ValidateAntiForgeryToken]
+        public IActionResult Delete(int id)
+        {
+            var movie = service.GetMovieById(id);
+            if (movie == null)
+            {
+                return NotFound();
+            }
+
+            service.DeleteMovie(id);
+            return RedirectToAction(nameof(Index));
+        }
     }
 }

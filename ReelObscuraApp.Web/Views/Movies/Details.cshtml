@@ -62,13 +62,15 @@
                     <a asp-controller="Movies" asp-action="Index" class="btn btn-outline-gold">
                         <i class="bi bi-arrow-left"></i> Back to Index
                     </a>
-                    <a href="@Model.ImdbUrl" class="btn btn-gold">
+                    <a href="@Model.ImdbUrl" class="btn btn-gold" target="_blank">
                         <i class="bi bi-film"></i> IMDB
                     </a>
                     <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-gold me-2">
                         <i class="bi bi-pencil"></i> Edit
                     </a>
-
+                    <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-outline-danger">
+                        <i class="bi bi-trash"></i> Delete
+                    </a>
                 </div>
 
                 </div>

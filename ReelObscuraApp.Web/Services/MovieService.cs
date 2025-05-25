@@ -89,7 +89,7 @@ namespace ReelObscuraApp.Web.Services
                 Description = "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
                 ReleaseYear = "2008",
                 ImdbUrl = "https://www.imdb.com/title/tt0468569/",
-                MoviePoster = "https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_QL75_UX135_CR0",
+                MoviePoster = "https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_.jpg",
                 Actors = new[] { "Christian Bale", "Heath Ledger", "Aaron Eckhart" },
                 TrailerUrl = "https://www.youtube.com/watch?v=EXeTwQWrcwY"
             }
@@ -122,10 +122,14 @@ namespace ReelObscuraApp.Web.Services
                 existingMovie.MoviePoster = movie.MoviePoster;
                 existingMovie.Actors = movie.Actors;
                 existingMovie.TrailerUrl = movie.TrailerUrl;
-
-                // Om du använder databas:
-                // _context.Update(movie);
-                // _context.SaveChanges();
+            }
+        }
+        public void DeleteMovie(int id)
+        {
+            var movie = movies.FirstOrDefault(m => m.Id == id);
+            if (movie != null)
+            {
+                movies.Remove(movie);
             }
         }
     }
