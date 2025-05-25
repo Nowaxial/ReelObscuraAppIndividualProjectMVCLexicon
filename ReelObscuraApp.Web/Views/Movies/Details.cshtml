@@ -58,18 +58,15 @@
                             </div>
                         </div>
                     }
-                <div class="d-flex justify-content-between mt-4">
-                    <a asp-controller="Movie" asp-action="Index" class="btn btn-outline-gold">
-                        <i class="bi bi-arrow-left"></i> Back to Index
-                    </a>
+                    <div class="d-flex justify-content-between mt-4">
+                        <a asp-controller="Movie" asp-action="Index" class="btn btn-outline-gold">
+                            <i class="bi bi-arrow-left"></i> Back to Index
+                        </a>
 
-                    <a href="@Model.ImdbUrl" class="btn btn-gold">
-                        <i class="bi bi-film"></i> IMDB
-                    </a>
-                    @*<button type="submit" class="btn btn-gold">
-                        <i class="bi bi-save"></i> IMDB
-                    </button>*@
-                </div>
+                        <a href="@Model.ImdbUrl" class="btn btn-gold">
+                            <i class="bi bi-film"></i> IMDB
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

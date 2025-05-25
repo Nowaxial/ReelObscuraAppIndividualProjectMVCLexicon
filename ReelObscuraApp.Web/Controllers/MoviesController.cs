@@ -10,9 +10,8 @@ namespace ReelObscuraApp.Web.Controllers
         [Route("NotFound/{statusCode}")]
         public IActionResult NotFound(int statusCode)
         {
-            return View(); 
+            return View();
         }
-
 
         [HttpGet("/")]
         public IActionResult Index()
@@ -99,6 +98,8 @@ namespace ReelObscuraApp.Web.Controllers
             return View(viewModel);
         }
 
+
+        // This action is for testing purposes to trigger an error page
         [HttpGet("/trigger-error")]
         public IActionResult TriggerError()
         {
